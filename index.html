@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="d3.min.js"></script>
+	<script src="dimple.v2.1.2.js"></script>
+	<script src="docready.js"></script>
+	<script src="here.js"></script>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans">
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+	<style>
+		a:link, a:visited {
+			text-decoration: none;
+		}
+		#chart{
+		font-family:PT Sans;
+		}
+
+a[href $='.csv'] { 
+   padding-left: 18px;
+   background: transparent url(xls.gif) no-repeat center left;
+}
+		
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: 'Nunito', sans-serif; */
+  font-family:PT Sans;
+  font-size: 14px;
+  color: #384047;
+}
+
+h1{
+font-size: 20px;
+}
+table {
+  max-width: 960px;
+  margin: 10px auto;
+}
+
+caption {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+thead th {
+  font-weight: 400;
+  background: #8a97a0;
+  color: #FFF;
+}
+
+tr {
+  background: #f4f7f8;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+  background: #e8eeef;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+  font-weight: 300;
+}
+
+tfoot tr {
+  background: none;
+}
+
+tfoot td {
+  padding: 10px 2px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #8a97a0;
+}
+
+.colwrapper { width:1950px; }
+/*
+.ltcol, .ctcol, .rtcol { width:630px; margin:0 10px; padding:10px; }
+.ltcol, .ctcol { float:left; }
+.rtcol { float:right; }
+
+.ltcol { background: red }
+.ctcol  { background: blue}
+.rtcol { background: green} 
+*/
+
+.ltcol, .ctcol, .rtcol { margin:0 10px; padding:10px; background-color: #efefef }
+.ltcol { float:left; width:630px; }
+.ctcol { float:left; }
+.rtcol { float:left; }
+.clear { clear: left; }
+
+
+	</style>
+	<title>“Паўлінка” ў лічбах</title>
+</head>
+<body>
+<div class="colwrapper">
+    
+<!-- <div style="width:1600px;height:800px;"> -->
+<div class="ltcol">
+<h1></h1>
+
+
+<div id="chart" style="width:630px;"></div>
+
+<div style="text-align:center;vertical-align: middle;line-height:90px;width:470px;">
+<p style='line-height: 32px'>
+  <a href="http://be.wikipedia.org/wiki/Паўлінка" target="_blank"><img src='wikipedia.ico' style='vertical-align: middle;padding-bottom:4px;padding-right:2px;' /><strong>«Паўлінка».</strong></a><strong>&nbsp;Камедыя. Янка Купала, 1912 г.</strong>
+</p>
+</div>  
+
+</div>
+<div class="ctcol">
+
+<table style="width:300px;vertical-align:left;" id="dataTable">
+  <!-- <caption>Спіс роляў</caption> -->
+  <thead>
+	<tr>
+	  <th scope="col">Роля</th>
+	  <th scope="col">Рэплікі</th>
+	  <th scope="col">Усяго словаў</th>
+	</tr>
+  </thead>
+  <tfoot>
+	<tr>
+	  <td colspan="3">
+		<a href="ololpo.csv">Сцягнуць файл у фармаце CSV.</a>
+	  </td>
+	</tr>
+  </tfoot>
+  <tbody>
+  </tbody>
+</table>
+
+	</div>
+    <div class="rtcol">
+
+<table id="dataTable2">
+  <!-- <caption>Словы</caption> -->
+  <thead>
+	<tr>
+	  <th scope="col">Слова</th>
+	  <th scope="col">Колькасць</th>
+	  
+	</tr>
+  </thead>
+  <tfoot>
+	<tr>
+	  <td colspan="2" id="freqinfo">
+	  </td>
+	</tr>
+	<tr>
+	  <td><input type="button" value="↑&nbsp;Уверх" onclick="freqtab(1)" /></td>
+	  <td><input type="button" value="Уніз&nbsp;↓" onclick="freqtab(0)" /></td>
+	</tr>
+	
+
+	<tr>
+	  <td colspan="2">
+		<a href="ololpo.csv">Сцягнуць файл у фармаце CSV.</a>
+	  </td>
+	</tr>
+	
+  </tfoot>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+</div>
+</body>
+
+ 
